@@ -16,7 +16,6 @@ namespace PowerBIEmbedded.Controllers
         }
 
         // Endpoint para obtener la configuración del reporte (embed token, embed url, etc.)
-        // Ejemplo de llamada: GET api/powerbi/report?reportId=TU_REPORT_ID
         [HttpGet("reportConfiguration")]
         public async Task<IActionResult> GetReportConfiguration([FromQuery] string reportId)
         {
