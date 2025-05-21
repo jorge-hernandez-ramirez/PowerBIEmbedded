@@ -1,0 +1,6 @@
+@PowerBIEmbedded_HostAddress = http://localhost:5248
+
+GET {{PowerBIEmbedded_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
