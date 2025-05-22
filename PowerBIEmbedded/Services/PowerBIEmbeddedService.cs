@@ -1,9 +1,9 @@
 using Microsoft.Identity.Client;
+using Newtonsoft.Json; 
+using Newtonsoft.Json.Linq;
 using PowerBIEmbedded.Models;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json; 
 
 namespace PowerBIEmbedded.Services
 {
@@ -74,8 +74,9 @@ namespace PowerBIEmbedded.Services
             var reportEmbeddedConfiguration = new ReportEmbeddedConfiguration
             {
                 ReportId = reportId,
+                //
                 // Puedes obtener el embed URL desde la respuesta de otra API o configurarlo previamente:
-                EmbeddedUrl = tokenResponse["tokenId"].ToString(),
+                EmbeddedUrl = "https://app.powerbi.com/reportEmbed?reportId="+reportId, //tokenResponse["tokenId"].ToString(),
                 Token = tokenResponse["token"].ToString(),
                 TokenExpiration = tokenResponse["expiration"].ToString(),
 

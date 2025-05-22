@@ -1,21 +1,23 @@
 using PowerBIEmbedded.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-// Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddHttpClient<PowerBIEmbeddedService>();
+var builder = WebApplication.CreateBuilder(args);
 
 // Configuración de CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy(name: MyAllowSpecificOrigins, policy =>
     {
         policy.AllowAnyOrigin()
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
+// Add services to the container.
+
+builder.Services.AddControllers();
+builder.Services.AddHttpClient<PowerBIEmbeddedService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -28,7 +30,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseCors();
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseHttpsRedirection();
 
