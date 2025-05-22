@@ -76,7 +76,7 @@ namespace PowerBIEmbedded.Services
                 ReportId = reportId,
                 //
                 // Puedes obtener el embed URL desde la respuesta de otra API o configurarlo previamente:
-                EmbeddedUrl = "https://app.powerbi.com/reportEmbed?reportId="+reportId, //tokenResponse["tokenId"].ToString(),
+                EmbeddedUrl = "https://app.powerbi.com/reportEmbed?reportId="+reportId, 
                 Token = tokenResponse["token"].ToString(),
                 TokenExpiration = tokenResponse["expiration"].ToString(),
 
